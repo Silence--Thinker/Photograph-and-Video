@@ -22,7 +22,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"....";
+    self.navigationItem.title = @"....";//hgjgj
     self.videoModel = YES;
     [self addTestBtn];
 }

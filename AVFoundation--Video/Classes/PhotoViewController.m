@@ -11,8 +11,11 @@
 #import "AVFoundation/AVMediaFormat.h"
 @interface PhotoViewController ()
 
-@end
+@property (nonatomic, strong) AVCaptureSession *session;
 
+//@property (nonatomic, strong) AVCaptureDevice *device;
+
+@end
 @implementation PhotoViewController
 
 - (void)viewDidLoad {
@@ -30,14 +33,34 @@
 }
 
 - (void)clickTestBtn:(UIButton *)sender {
-    AVCaptureSession *session = [[AVCaptureSession alloc] init];
-    
     
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
     AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:NULL];
-    [session addInput:deviceInput];
+    [self.session addInput:deviceInput];
     
     AVCaptureStillImageOutput *imageOutput = [[AVCaptureStillImageOutput alloc] init];
     
+}
+
+#pragma mark - getter
+- (AVCaptureSession *)session {
+    if (!_session) {
+        _session = [[AVCaptureSession alloc] init];
+        if ([_session canSetSessionPreset:AVCaptureSessionPresetHigh]) {
+            _session.sessionPreset = AVCaptureSessionPresetHigh;
+        }
+    }
+    return _session;
+}
+
+- (AVCaptureDevice *)cameraDeviceWithPosition:(AVCaptureDevicePosition)position {
+    NSArray *cameras = [AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio];
+    for (AVCaptureDevice *camera in cameras) {
+        if ([camera position] == position) {
+            return camera;
+        }
+    }
+    return nil;
 }
 @end

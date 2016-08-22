@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AVFoundation/AVMediaFormat.h"
 #import "AVFoundation/AVVideoSettings.h"
+
 @interface PhotoViewController ()
 
 @property (nonatomic, strong) AVCaptureSession *session;
@@ -79,7 +80,8 @@
     [self.session startRunning];
     
     [self addNotificationToCaptureDevice:device];
-    
+//    AVCaptureConnection *d;
+//    AVAudioSessionPortBuiltInMic;AVAudioSessionOrientationFront;;
 }
 
 #pragma mark - getter

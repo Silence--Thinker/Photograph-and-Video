@@ -16,19 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfy-RD-fgI">
-                                <rect key="frame" x="40" y="220" width="240" height="128"/>
-                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Tfy-RD-fgI" secondAttribute="trailing" constant="40" id="PE4-U0-dvL"/>
-                            <constraint firstItem="Tfy-RD-fgI" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="200" id="QcV-dD-cfx"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Tfy-RD-fgI" secondAttribute="bottom" constant="220" id="T89-8l-isn"/>
-                            <constraint firstItem="Tfy-RD-fgI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="40" id="aj6-Ca-kAb"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

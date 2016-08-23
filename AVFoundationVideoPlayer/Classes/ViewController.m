@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+#import "XJPlayerViewController.h"
 #import "TCPlayerViewController.h"
 
 
@@ -24,16 +25,21 @@ static NSString * const kIdentifier = @"identifier";
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentifier];
-    cell.textLabel.text = @"视频播放";
+    cell.textLabel.text = indexPath.row == 0 ? @"VC" :@"视频播放";
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        XJPlayerViewController *newVC = [[XJPlayerViewController alloc] init];
+        [self.navigationController presentViewController:newVC animated:YES completion:nil];
+        return;
+    }
     TCPlayerViewController *newVC = [[TCPlayerViewController alloc] init];
     [self.navigationController pushViewController:newVC animated:YES];
 }

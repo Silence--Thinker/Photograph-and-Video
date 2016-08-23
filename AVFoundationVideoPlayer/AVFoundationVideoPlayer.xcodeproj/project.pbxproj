@@ -333,6 +333,7 @@
 				E814DD781D6AAC58002BFBC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

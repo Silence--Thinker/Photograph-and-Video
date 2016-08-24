@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
-
 
 @class TCPlayerView;
 @interface TCPlayerViewController : UIViewController

@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 
 @class TCPlayerView;
 @interface XJPlayerViewController : UIViewController
-
-/** 播放器 */
-@property (nonatomic, strong, readonly) AVPlayer *player;
 
 /** 资源路径 */
 @property (nonatomic, strong) AVURLAsset *asset;
@@ -28,5 +24,5 @@
 @property (nonatomic, weak) UISlider *timeSlider;
 
 
-@property (nonatomic, weak) TCPlayerView *playerView;
+
 @end

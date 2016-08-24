@@ -1,0 +1,21 @@
+//
+//  AVFoundationVideoPlayer.pch
+//  AVFoundationVideoPlayer
+//
+//  Created by Silence on 16/8/24.
+//  Copyright © 2016年 ___SILENCE___. All rights reserved.
+//
+
+#ifndef AVFoundationVideoPlayer_pch
+#define AVFoundationVideoPlayer_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* AVFoundationVideoPlayer_pch */
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+
+#import "Masonry.h"

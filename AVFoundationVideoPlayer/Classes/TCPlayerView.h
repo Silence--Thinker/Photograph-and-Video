@@ -19,3 +19,6 @@
 
 @property (nonatomic, strong) XJPlayerManager *playerManager;
 @end
+
+
+

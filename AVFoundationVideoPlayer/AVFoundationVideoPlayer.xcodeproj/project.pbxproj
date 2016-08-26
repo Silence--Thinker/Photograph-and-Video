@@ -21,6 +21,12 @@
 		E814DDB41D6C3D44002BFBC5 /* XJPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E814DDB31D6C3D44002BFBC5 /* XJPlayerViewController.m */; };
 		E84C3CBB1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E84C3CBA1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m */; };
 		E84C3CBE1D6DA19C00295B72 /* XJPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E84C3CBD1D6DA19C00295B72 /* XJPlayerManager.m */; };
+		E8DADD091D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DADD081D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m */; };
+		E8DADD0C1D6E9985001C6CF0 /* XJPlayerManager+KeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DADD0B1D6E9985001C6CF0 /* XJPlayerManager+KeyValueObserver.m */; };
+		E8DADD0F1D6EDAC0001C6CF0 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DADD0E1D6EDAC0001C6CF0 /* ListViewController.m */; };
+		E8DADD131D6EDB29001C6CF0 /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DADD111D6EDB29001C6CF0 /* ListCell.m */; };
+		E8DADD141D6EDB29001C6CF0 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DADD121D6EDB29001C6CF0 /* ListCell.xib */; };
+		E8DADD161D6EDD72001C6CF0 /* 111111111.mov in Resources */ = {isa = PBXBuildFile; fileRef = E8DADD151D6EDD72001C6CF0 /* 111111111.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,16 @@
 		E84C3CBA1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPlayerKeyValueObserver.m; sourceTree = "<group>"; };
 		E84C3CBC1D6DA19C00295B72 /* XJPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPlayerManager.h; sourceTree = "<group>"; };
 		E84C3CBD1D6DA19C00295B72 /* XJPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPlayerManager.m; sourceTree = "<group>"; };
+		E8DADD071D6E9175001C6CF0 /* XJPlayerManager+PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XJPlayerManager+PlayerView.h"; sourceTree = "<group>"; };
+		E8DADD081D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XJPlayerManager+PlayerView.m"; sourceTree = "<group>"; };
+		E8DADD0A1D6E9985001C6CF0 /* XJPlayerManager+KeyValueObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XJPlayerManager+KeyValueObserver.h"; sourceTree = "<group>"; };
+		E8DADD0B1D6E9985001C6CF0 /* XJPlayerManager+KeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XJPlayerManager+KeyValueObserver.m"; sourceTree = "<group>"; };
+		E8DADD0D1D6EDAC0001C6CF0 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		E8DADD0E1D6EDAC0001C6CF0 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		E8DADD101D6EDB29001C6CF0 /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
+		E8DADD111D6EDB29001C6CF0 /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
+		E8DADD121D6EDB29001C6CF0 /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
+		E8DADD151D6EDD72001C6CF0 /* 111111111.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 111111111.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				E84C3CB81D6D6E3500295B72 /* AVFoundationVideoPlayer.pch */,
+				E8DADD151D6EDD72001C6CF0 /* 111111111.mov */,
 				E814DD8B1D6AD0FD002BFBC5 /* ElephantSeals.mov */,
 				E814DD6B1D6AAC58002BFBC5 /* Main.storyboard */,
 				E814DD6E1D6AAC58002BFBC5 /* Assets.xcassets */,
@@ -121,6 +138,11 @@
 			children = (
 				E814DD7A1D6AAD33002BFBC5 /* ViewController.h */,
 				E814DD7B1D6AAD33002BFBC5 /* ViewController.m */,
+				E8DADD0D1D6EDAC0001C6CF0 /* ListViewController.h */,
+				E8DADD0E1D6EDAC0001C6CF0 /* ListViewController.m */,
+				E8DADD101D6EDB29001C6CF0 /* ListCell.h */,
+				E8DADD111D6EDB29001C6CF0 /* ListCell.m */,
+				E8DADD121D6EDB29001C6CF0 /* ListCell.xib */,
 				E814DD831D6ACA7B002BFBC5 /* TCPlayerViewController.h */,
 				E814DD841D6ACA7B002BFBC5 /* TCPlayerViewController.m */,
 				E814DDB21D6C3D44002BFBC5 /* XJPlayerViewController.h */,
@@ -129,8 +151,12 @@
 				E814DD871D6ACAA6002BFBC5 /* TCPlayerView.m */,
 				E84C3CBC1D6DA19C00295B72 /* XJPlayerManager.h */,
 				E84C3CBD1D6DA19C00295B72 /* XJPlayerManager.m */,
+				E8DADD0A1D6E9985001C6CF0 /* XJPlayerManager+KeyValueObserver.h */,
+				E8DADD0B1D6E9985001C6CF0 /* XJPlayerManager+KeyValueObserver.m */,
 				E84C3CB91D6D7D3D00295B72 /* XJPlayerKeyValueObserver.h */,
 				E84C3CBA1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m */,
+				E8DADD071D6E9175001C6CF0 /* XJPlayerManager+PlayerView.h */,
+				E8DADD081D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -210,6 +236,8 @@
 				E814DD6F1D6AAC58002BFBC5 /* Assets.xcassets in Resources */,
 				E814DD8C1D6AD0FD002BFBC5 /* ElephantSeals.mov in Resources */,
 				E814DD6D1D6AAC58002BFBC5 /* Main.storyboard in Resources */,
+				E8DADD161D6EDD72001C6CF0 /* 111111111.mov in Resources */,
+				E8DADD141D6EDB29001C6CF0 /* ListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,8 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E814DD811D6AAD33002BFBC5 /* AppDelegate.m in Sources */,
+				E8DADD131D6EDB29001C6CF0 /* ListCell.m in Sources */,
 				E814DD821D6AAD33002BFBC5 /* main.m in Sources */,
+				E8DADD0F1D6EDAC0001C6CF0 /* ListViewController.m in Sources */,
+				E8DADD0C1D6E9985001C6CF0 /* XJPlayerManager+KeyValueObserver.m in Sources */,
 				E84C3CBB1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m in Sources */,
+				E8DADD091D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m in Sources */,
 				E814DD881D6ACAA6002BFBC5 /* TCPlayerView.m in Sources */,
 				E84C3CBE1D6DA19C00295B72 /* XJPlayerManager.m in Sources */,
 				E814DD851D6ACA7B002BFBC5 /* TCPlayerViewController.m in Sources */,

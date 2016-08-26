@@ -17,6 +17,7 @@
 @interface XJPlayerViewController ()
 
 @property (nonatomic, weak) TCPlayerView *playerView;
+@property (nonatomic, weak) XJPlayerManager *manager;
 
 
 @end
@@ -33,11 +34,12 @@
 
 - (void)buildingPlayerControllerSubViews {
     self.view.backgroundColor = [UIColor blackColor];
-    
-    TCPlayerView *playerView = [[TCPlayerView alloc] initWithPlayerManager:[XJPlayerManager new]];
+    XJPlayerManager *manager = [XJPlayerManager new];
+    TCPlayerView *playerView = [[TCPlayerView alloc] initWithPlayerManager:manager];
     playerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:playerView];
     self.playerView = playerView;
+    self.manager = manager;
     
     UISlider *timeSlider = [[UISlider alloc] init];
     timeSlider.translatesAutoresizingMaskIntoConstraints = NO;
@@ -78,6 +80,12 @@
 - (void)initializePlayerVariablesValue {
 //    self.playerView.repeatPlay = YES;
 //    [self.playerView play];
+//    self.manager.videoURL = @"";
+    NSURL *moviceURL = [[NSBundle mainBundle] URLForResource:@"ElephantSeals" withExtension:@"mov"];
+    //    NSURL *moviceURL = [NSURL URLWithString:@"http://flv2.bn.netease.com/videolib3/1608/24/QZlcB4089/SD/QZlcB4089-mobile.mp4"];
+    self.manager.videoURL = moviceURL.absoluteString;
+    self.manager.muted = YES;
+    self.manager.repeatPlay = YES;
 }
 
 // MARK: - timeSliderDidChange
@@ -87,12 +95,12 @@
 }
 
 - (void)playPauseButtonWasPressed:(UIButton *)sender {
-//    if (self.playerView.rate != 1.0) {
-//        [self.playerView play];
-//    }else {
-//        // playing so pause
-//        [self.playerView pause];
-//    }
+    if (self.manager.rate != 1.0) {
+        [self.manager play];
+    }else {
+        // playing so pause
+        [self.manager pause];
+    }
 }
 
 // MARK: - Properties

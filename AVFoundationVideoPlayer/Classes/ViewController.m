@@ -11,6 +11,8 @@
 #import "XJPlayerViewController.h"
 #import "TCPlayerViewController.h"
 
+#import "ListViewController.h"
+
 
 static NSString * const kIdentifier = @"identifier";
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -25,12 +27,15 @@ static NSString * const kIdentifier = @"identifier";
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentifier];
     cell.textLabel.text = indexPath.row == 0 ? @"VC" :@"视频播放";
+    if (indexPath.row == 2) {
+        cell.textLabel.text = @"列表播放";
+    }
     return cell;
 }
 
@@ -38,6 +43,10 @@ static NSString * const kIdentifier = @"identifier";
     if (indexPath.row == 1) {
         XJPlayerViewController *newVC = [[XJPlayerViewController alloc] init];
         [self.navigationController presentViewController:newVC animated:YES completion:nil];
+        return;
+    } else if (indexPath.row == 2) {
+        ListViewController *newVC = [[ListViewController alloc] init];
+        [self.navigationController pushViewController:newVC animated:YES];
         return;
     }
     TCPlayerViewController *newVC = [[TCPlayerViewController alloc] init];

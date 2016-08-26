@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TCPlayerView.h"
 
+extern NSString * const kKeyPathForAsset;
+extern NSString * const kKeyPathForPlayerItemStatus ;
+extern NSString * const kKeyPathForPlayerItemLoadedTimeRanges;
+typedef int PlayerContext;
+extern PlayerContext TCPlayerViewKVOContext;
 
+@class TCPlayerView;
 @protocol XJPlayerManagerDelegate <NSObject>
 
 @optional
@@ -22,12 +27,14 @@
 @end
 @interface XJPlayerManager : NSObject
 
-@property (nonatomic, weak) TCPlayerView *playerView;
+@property (nonatomic, weak, readonly) TCPlayerView *playerView;
 
 /** 播放器 */
 @property (nonatomic, strong, readonly) AVPlayer *player;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
+
 /** 资源路径 */
-@property (nonatomic, strong) AVURLAsset *asset;
+@property (nonatomic, strong, readonly) AVURLAsset *asset;
 @property (nonatomic, copy) NSString *videoURL;
 /** 当前时间 */
 @property (nonatomic, assign) CMTime currentTime;
@@ -37,12 +44,17 @@
 @property (nonatomic, assign) CGFloat rate;
 
 
-
 /** 重复播放 default is NO */
 @property (nonatomic, assign) BOOL repeatPlay;
+/** 是否有声音播放 default is NO */
+@property (nonatomic, assign, getter=isMuted) BOOL muted;
+@property (nonatomic, assign) BOOL justOnePlay;
 
 
 @property (nonatomic, weak) id<XJPlayerManagerDelegate> delegate;
+- (void)initializePlayerView:(TCPlayerView *)playerView;
+- (void)clear;
 - (void)play;
 - (void)pause;
++ (NSArray *)assetKeysRequiredToPlay;
 @end

@@ -25,7 +25,6 @@
 -(instancetype)initWithPlayerManager:(XJPlayerManager *)manager {
     if (self = [super init]) {
         self.playerManager = manager;
-        self.playerManager.playerView = self;
     }
     return self;
 }
@@ -33,10 +32,10 @@
 // MARK: - Properties
 
 - (AVPlayer *)player {
-    if (!_player) {
-        _player = [[AVPlayer alloc] init];
-    }
-    return _player;
+    return self.playerLayer.player;
+}
+- (void)setPlayer:(AVPlayer *)player {
+    self.playerLayer.player = player;
 }
 
 - (AVPlayerLayer *)playerLayer {
@@ -48,4 +47,12 @@
     return [AVPlayerLayer class];
 }
 
+- (void)setPlayerManager:(XJPlayerManager *)playerManager {
+    _playerManager = playerManager;
+    [_playerManager initializePlayerView:self];
+}
+
+
+
 @end
+

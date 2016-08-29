@@ -11,23 +11,25 @@
 extern NSString * const kKeyPathForAsset;
 extern NSString * const kKeyPathForPlayerItemStatus ;
 extern NSString * const kKeyPathForPlayerItemLoadedTimeRanges;
+extern NSString * const kKeyPathForPlayerItemBufferEmpty;
+extern NSString * const kKeyPathForPlayerItemLikelyToKeepUp;
 typedef int PlayerContext;
 extern PlayerContext TCPlayerViewKVOContext;
 
-@class TCPlayerView;
+@class XJPlayerView;
 @protocol XJPlayerManagerDelegate <NSObject>
 
 @optional
 
-- (void)playViewWillReadyToPlay:(TCPlayerView *)playView;
-- (void)playViewDidPlayToEnd:(TCPlayerView *)playView;
-- (void)playViewDidPlayToFailed:(TCPlayerView *)playView error:(NSError *)error;
-
+- (void)playViewWillReadyToPlay:(XJPlayerView *)playView;
+- (void)playViewDidPlayToEnd:(XJPlayerView *)playView;
+- (void)playViewDidPlayToFailed:(XJPlayerView *)playView error:(NSError *)error;
+- (void)playView:(XJPlayerView *)playView didPlayProgressRate:(CGFloat)progressRate;
 
 @end
 @interface XJPlayerManager : NSObject
 
-@property (nonatomic, weak, readonly) TCPlayerView *playerView;
+@property (nonatomic, weak, readonly) XJPlayerView *playerView;
 
 /** 播放器 */
 @property (nonatomic, strong, readonly) AVPlayer *player;
@@ -52,7 +54,7 @@ extern PlayerContext TCPlayerViewKVOContext;
 
 
 @property (nonatomic, weak) id<XJPlayerManagerDelegate> delegate;
-- (void)initializePlayerView:(TCPlayerView *)playerView;
+- (void)initializePlayerView:(XJPlayerView *)playerView;
 - (void)clear;
 - (void)play;
 - (void)pause;

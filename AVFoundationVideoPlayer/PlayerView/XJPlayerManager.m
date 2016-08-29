@@ -7,7 +7,7 @@
 //
 
 #import "XJPlayerManager.h"
-#import "TCPlayerView.h"
+#import "XJPlayerView.h"
 
 // category
 #import "XJPlayerManager+KeyValueObserver.h"
@@ -18,7 +18,10 @@
 NSString * const kKeyPathForAsset = @"asset";
 NSString * const kKeyPathForPlayerItemStatus = @"player.currentItem.status";
 NSString * const kKeyPathForPlayerItemLoadedTimeRanges = @"player.currentItem.loadedTimeRanges";
+NSString * const kKeyPathForPlayerItemBufferEmpty = @"player.currentItem.playbackBufferEmpty";
+NSString * const kKeyPathForPlayerItemLikelyToKeepUp = @"player.currentItem.playbackLikelyToKeepUp";
 NSString * const kStopAnotherVideoPlayer = @"StopAnthorVideoPlayer";
+
 
 PlayerContext TCPlayerViewKVOContext = 0;
 
@@ -30,7 +33,7 @@ PlayerContext TCPlayerViewKVOContext = 0;
     NSString *_videoURL;
     NSString *_identifier;
     id<NSObject> _timeObserverToken;// 时间观察token
-    __weak TCPlayerView *_playerView;
+    __weak XJPlayerView *_playerView;
 }
 @end
 @implementation XJPlayerManager
@@ -58,9 +61,16 @@ PlayerContext TCPlayerViewKVOContext = 0;
 
 - (void)addPropertiesObserver {
     // 添加监听
+    // 资源
     [self addObserver:self forKeyPath:kKeyPathForAsset options:NSKeyValueObservingOptionNew context:&TCPlayerViewKVOContext];
+    // 播放器状态
     [self addObserver:self forKeyPath:kKeyPathForPlayerItemStatus options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:&TCPlayerViewKVOContext];
+    // 加载的进度
     [self addObserver:self forKeyPath:kKeyPathForPlayerItemLoadedTimeRanges options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:&TCPlayerViewKVOContext];
+    // 缓存区为空
+    [self addObserver:self forKeyPath:kKeyPathForPlayerItemBufferEmpty options:NSKeyValueObservingOptionNew context:&TCPlayerViewKVOContext];
+    // 缓存足够去播放
+     [self addObserver:self forKeyPath:kKeyPathForPlayerItemLikelyToKeepUp options:NSKeyValueObservingOptionNew context:&TCPlayerViewKVOContext];
     
     // 添加视频播放结束通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidPlayToEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
@@ -82,6 +92,9 @@ PlayerContext TCPlayerViewKVOContext = 0;
     [self removeObserver:self forKeyPath:kKeyPathForAsset context:&TCPlayerViewKVOContext];
     [self removeObserver:self forKeyPath:kKeyPathForPlayerItemStatus context:&TCPlayerViewKVOContext];
     [self removeObserver:self forKeyPath:kKeyPathForPlayerItemLoadedTimeRanges context:&TCPlayerViewKVOContext];
+    [self removeObserver:self forKeyPath:kKeyPathForPlayerItemBufferEmpty context:&TCPlayerViewKVOContext];
+    [self removeObserver:self forKeyPath:kKeyPathForPlayerItemLikelyToKeepUp context:&TCPlayerViewKVOContext];
+    
 }
 
 // MARK: - Properties
@@ -90,10 +103,10 @@ PlayerContext TCPlayerViewKVOContext = 0;
     return @[ @"playable", @"hasProtectedContent" ];
 }
 
-- (TCPlayerView *)playerView {
+- (XJPlayerView *)playerView {
     return _playerView;
 }
-- (void)initializePlayerView:(TCPlayerView *)playerView {
+- (void)initializePlayerView:(XJPlayerView *)playerView {
     _playerView = playerView;
 //    _playerView.player = self.player;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "XJPlayerViewController.h"
-#import "TCPlayerView.h"
+#import "XJPlayerView.h"
 #import "XJPlayerManager.h"
 
 
@@ -16,7 +16,7 @@
 
 @interface XJPlayerViewController ()
 
-@property (nonatomic, weak) TCPlayerView *playerView;
+@property (nonatomic, weak) XJPlayerView *playerView;
 @property (nonatomic, weak) XJPlayerManager *manager;
 
 
@@ -35,7 +35,7 @@
 - (void)buildingPlayerControllerSubViews {
     self.view.backgroundColor = [UIColor blackColor];
     XJPlayerManager *manager = [XJPlayerManager new];
-    TCPlayerView *playerView = [[TCPlayerView alloc] initWithPlayerManager:manager];
+    XJPlayerView *playerView = [[XJPlayerView alloc] initWithPlayerManager:manager];
     playerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:playerView];
     self.playerView = playerView;

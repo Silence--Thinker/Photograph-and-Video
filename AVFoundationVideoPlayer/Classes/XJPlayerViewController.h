@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TCPlayerView;
+@class XJPlayerView;
 @interface XJPlayerViewController : UIViewController
 
 /** 资源路径 */

@@ -8,7 +8,7 @@
 
 #import "TCPlayerViewController.h"
 
-#import "TCPlayerView.h"
+#import "XJPlayerView.h"
 
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -91,7 +91,7 @@ static int TCPlayerViewControllerKVOContext = 0;
 //    self.view.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.view.backgroundColor = [UIColor grayColor];
-    TCPlayerView *playerView = [[TCPlayerView alloc] init];
+    XJPlayerView *playerView = [[XJPlayerView alloc] init];
     playerView.translatesAutoresizingMaskIntoConstraints = NO;
     playerView.backgroundColor = [UIColor redColor];
     [self.view addSubview:playerView];

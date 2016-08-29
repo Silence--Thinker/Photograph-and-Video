@@ -1,20 +1,20 @@
 //
-//  TCPlayerView.m
+//  XJPlayerView.m
 //  AVFoundationVideoPlayer
 //
 //  Created by Silence on 16/8/22.
 //  Copyright © 2016年 ___SILENCE___. All rights reserved.
 //
 
-#import "TCPlayerView.h"
+#import "XJPlayerView.h"
 #import "XJPlayerManager.h"
 
-@interface TCPlayerView ()
+@interface XJPlayerView ()
 
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 
 @end
-@implementation TCPlayerView
+@implementation XJPlayerView
 
 -(void)dealloc {
     NSLog(@"%s", __func__);

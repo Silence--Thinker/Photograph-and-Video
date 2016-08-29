@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TCPlayerView;
+@class XJPlayerView;
 @interface TCPlayerViewController : UIViewController
 
 /** 播放器 */
@@ -39,6 +39,6 @@
 
 
 /** 播放器视图 */
-@property (nonatomic, weak) TCPlayerView *playerView;
+@property (nonatomic, weak) XJPlayerView *playerView;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  TCPlayerView.h
+//  XJPlayerView.h
 //  AVFoundationVideoPlayer
 //
 //  Created by Silence on 16/8/22.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class XJPlayerManager;
-@interface TCPlayerView : UIView
+@interface XJPlayerView : UIView
 
 -(instancetype)initWithPlayerManager:(XJPlayerManager *)manager;
 

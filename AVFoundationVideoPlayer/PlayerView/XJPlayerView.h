@@ -15,7 +15,7 @@
 
 /** 播放器 */
 @property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, strong, readonly) AVPlayerLayer *playerLayer;
+@property (nonatomic, strong) AVPlayerLayer *playerLayer;
 
 @property (nonatomic, strong) XJPlayerManager *playerManager;
 @end

@@ -21,7 +21,7 @@ extern PlayerContext TCPlayerViewKVOContext;
 
 // MARK: - Asset Loading
 
-- (void)asynchronouslyLoadURLAsset:(AVURLAsset *)newAsset {
+- (void)asynchronouslyLoadURLAsset:(AVURLAsset *)newAsset comletion:(void(^)())completion {
     [newAsset loadValuesAsynchronouslyForKeys:XJPlayerManager.assetKeysRequiredToPlay completionHandler:^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -42,6 +42,9 @@ extern PlayerContext TCPlayerViewKVOContext;
             }
             // can play this asset
             self.playerItem = [AVPlayerItem playerItemWithAsset:newAsset];
+            if (completion) {
+                completion();
+            }
         });
     }];
 }
@@ -58,7 +61,7 @@ extern PlayerContext TCPlayerViewKVOContext;
     if ([keyPath isEqualToString:kKeyPathForAsset]) {
         if (self.asset) {
             // 到这一步视频就会 加载进来了。会有默认帧图
-            [self asynchronouslyLoadURLAsset:self.asset];
+            [self asynchronouslyLoadURLAsset:self.asset comletion:nil];
         }
     }
     else if ([keyPath isEqualToString:kKeyPathForPlayerItemStatus]) {
@@ -72,12 +75,12 @@ extern PlayerContext TCPlayerViewKVOContext;
                 [self.delegate playViewDidPlayToFailed:self.playerView error:self.playerItem.error];
             }
         }else if (newStatus == AVPlayerItemStatusReadyToPlay) {
-            
+              NSLog(@"cant to play");
             if ([self.delegate respondsToSelector:@selector(playViewWillReadyToPlay:)]) {
                 [self.delegate playViewWillReadyToPlay:self.playerView];
             }
         }else if(newStatus == AVPlayerItemStatusUnknown) {
-            
+            NSLog(@"dont't known ItemStatus");
         }
     }
     else if ([keyPath isEqualToString:kKeyPathForPlayerItemLoadedTimeRanges]){

@@ -13,6 +13,7 @@ extern NSString * const kKeyPathForPlayerItemStatus ;
 extern NSString * const kKeyPathForPlayerItemLoadedTimeRanges;
 extern NSString * const kKeyPathForPlayerItemBufferEmpty;
 extern NSString * const kKeyPathForPlayerItemLikelyToKeepUp;
+extern NSString * const kCustomScheme;
 typedef int PlayerContext;
 extern PlayerContext TCPlayerViewKVOContext;
 
@@ -29,15 +30,16 @@ extern PlayerContext TCPlayerViewKVOContext;
 @end
 @interface XJPlayerManager : NSObject
 
+/** 播放视图 */
 @property (nonatomic, weak, readonly) XJPlayerView *playerView;
-
-/** 播放器 */
 @property (nonatomic, strong, readonly) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 
 /** 资源路径 */
 @property (nonatomic, strong, readonly) AVURLAsset *asset;
-@property (nonatomic, copy) NSString *videoURL;
+@property (nonatomic, strong) NSURL *videoURL;
+@property (nonatomic, copy) NSString *videoURLStr;
+
 /** 当前时间 */
 @property (nonatomic, assign) CMTime currentTime;
 /** 持续时间 */
@@ -48,7 +50,7 @@ extern PlayerContext TCPlayerViewKVOContext;
 
 /** 重复播放 default is NO */
 @property (nonatomic, assign) BOOL repeatPlay;
-/** 是否有声音播放 default is NO */
+/** 是否静音播放 default is NO */
 @property (nonatomic, assign, getter=isMuted) BOOL muted;
 @property (nonatomic, assign) BOOL justOnePlay;
 

@@ -19,9 +19,15 @@
 		E814DD8C1D6AD0FD002BFBC5 /* ElephantSeals.mov in Resources */ = {isa = PBXBuildFile; fileRef = E814DD8B1D6AD0FD002BFBC5 /* ElephantSeals.mov */; };
 		E814DDB41D6C3D44002BFBC5 /* XJPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E814DDB31D6C3D44002BFBC5 /* XJPlayerViewController.m */; };
 		E84C3CBB1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E84C3CBA1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m */; };
-		E884E55E1D73D7300000AD89 /* XJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E884E5591D73D7300000AD89 /* XJPlayerView.m */; };
-		E884E55F1D73D7300000AD89 /* XJPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E884E55B1D73D7300000AD89 /* XJPlayerManager.m */; };
-		E884E5601D73D7300000AD89 /* XJPlayerManager+KeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E884E55D1D73D7300000AD89 /* XJPlayerManager+KeyValueObserver.m */; };
+		E876AE051D7832440020907C /* XJPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E876ADFE1D7832440020907C /* XJPlayerManager.m */; };
+		E876AE061D7832440020907C /* XJPlayerManager+KeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE001D7832440020907C /* XJPlayerManager+KeyValueObserver.m */; };
+		E876AE071D7832440020907C /* XJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE021D7832440020907C /* XJPlayerView.m */; };
+		E876AE081D7832440020907C /* XJPresentPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE041D7832440020907C /* XJPresentPlayerViewController.m */; };
+		E876AE121D7832560020907C /* XJAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE0B1D7832560020907C /* XJAnimatedTransitioning.m */; };
+		E876AE131D7832560020907C /* XJPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE0D1D7832560020907C /* XJPresentationController.m */; };
+		E876AE141D7832560020907C /* XJPresenterStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE0F1D7832560020907C /* XJPresenterStyle.m */; };
+		E876AE151D7832560020907C /* XJPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE111D7832560020907C /* XJPresentViewController.m */; };
+		E876AE181D7836560020907C /* XJResourceLoaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E876AE171D7836560020907C /* XJResourceLoaderManager.m */; };
 		E8DADD091D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DADD081D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m */; };
 		E8DADD0F1D6EDAC0001C6CF0 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DADD0E1D6EDAC0001C6CF0 /* ListViewController.m */; };
 		E8DADD131D6EDB29001C6CF0 /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DADD111D6EDB29001C6CF0 /* ListCell.m */; };
@@ -52,12 +58,25 @@
 		E84C3CB81D6D6E3500295B72 /* AVFoundationVideoPlayer.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFoundationVideoPlayer.pch; sourceTree = "<group>"; };
 		E84C3CB91D6D7D3D00295B72 /* XJPlayerKeyValueObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPlayerKeyValueObserver.h; sourceTree = "<group>"; };
 		E84C3CBA1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPlayerKeyValueObserver.m; sourceTree = "<group>"; };
-		E884E5581D73D7300000AD89 /* XJPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPlayerView.h; sourceTree = "<group>"; };
-		E884E5591D73D7300000AD89 /* XJPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPlayerView.m; sourceTree = "<group>"; };
-		E884E55A1D73D7300000AD89 /* XJPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPlayerManager.h; sourceTree = "<group>"; };
-		E884E55B1D73D7300000AD89 /* XJPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPlayerManager.m; sourceTree = "<group>"; };
-		E884E55C1D73D7300000AD89 /* XJPlayerManager+KeyValueObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XJPlayerManager+KeyValueObserver.h"; sourceTree = "<group>"; };
-		E884E55D1D73D7300000AD89 /* XJPlayerManager+KeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XJPlayerManager+KeyValueObserver.m"; sourceTree = "<group>"; };
+		E876ADFC1D7832440020907C /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		E876ADFD1D7832440020907C /* XJPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPlayerManager.h; sourceTree = "<group>"; };
+		E876ADFE1D7832440020907C /* XJPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPlayerManager.m; sourceTree = "<group>"; };
+		E876ADFF1D7832440020907C /* XJPlayerManager+KeyValueObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XJPlayerManager+KeyValueObserver.h"; sourceTree = "<group>"; };
+		E876AE001D7832440020907C /* XJPlayerManager+KeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XJPlayerManager+KeyValueObserver.m"; sourceTree = "<group>"; };
+		E876AE011D7832440020907C /* XJPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPlayerView.h; sourceTree = "<group>"; };
+		E876AE021D7832440020907C /* XJPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPlayerView.m; sourceTree = "<group>"; };
+		E876AE031D7832440020907C /* XJPresentPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPresentPlayerViewController.h; sourceTree = "<group>"; };
+		E876AE041D7832440020907C /* XJPresentPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPresentPlayerViewController.m; sourceTree = "<group>"; };
+		E876AE0A1D7832560020907C /* XJAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJAnimatedTransitioning.h; sourceTree = "<group>"; };
+		E876AE0B1D7832560020907C /* XJAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJAnimatedTransitioning.m; sourceTree = "<group>"; };
+		E876AE0C1D7832560020907C /* XJPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPresentationController.h; sourceTree = "<group>"; };
+		E876AE0D1D7832560020907C /* XJPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPresentationController.m; sourceTree = "<group>"; };
+		E876AE0E1D7832560020907C /* XJPresenterStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPresenterStyle.h; sourceTree = "<group>"; };
+		E876AE0F1D7832560020907C /* XJPresenterStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPresenterStyle.m; sourceTree = "<group>"; };
+		E876AE101D7832560020907C /* XJPresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJPresentViewController.h; sourceTree = "<group>"; };
+		E876AE111D7832560020907C /* XJPresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJPresentViewController.m; sourceTree = "<group>"; };
+		E876AE161D7836560020907C /* XJResourceLoaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJResourceLoaderManager.h; sourceTree = "<group>"; };
+		E876AE171D7836560020907C /* XJResourceLoaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJResourceLoaderManager.m; sourceTree = "<group>"; };
 		E8DADD071D6E9175001C6CF0 /* XJPlayerManager+PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XJPlayerManager+PlayerView.h"; sourceTree = "<group>"; };
 		E8DADD081D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XJPlayerManager+PlayerView.m"; sourceTree = "<group>"; };
 		E8DADD0D1D6EDAC0001C6CF0 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -103,6 +122,7 @@
 			children = (
 				E814DD891D6ACBC9002BFBC5 /* AVFoundation.framework */,
 				E814DD611D6AAC58002BFBC5 /* AVFoundationVideoPlayer */,
+				E876AE091D7832560020907C /* Present */,
 				E884E5571D73D7090000AD89 /* PlayerView */,
 				E814DD791D6AAD33002BFBC5 /* Classes */,
 				E814DD7C1D6AAD33002BFBC5 /* Otheres */,
@@ -166,15 +186,35 @@
 			path = Otheres;
 			sourceTree = "<group>";
 		};
+		E876AE091D7832560020907C /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				E876AE0A1D7832560020907C /* XJAnimatedTransitioning.h */,
+				E876AE0B1D7832560020907C /* XJAnimatedTransitioning.m */,
+				E876AE0C1D7832560020907C /* XJPresentationController.h */,
+				E876AE0D1D7832560020907C /* XJPresentationController.m */,
+				E876AE0E1D7832560020907C /* XJPresenterStyle.h */,
+				E876AE0F1D7832560020907C /* XJPresenterStyle.m */,
+				E876AE101D7832560020907C /* XJPresentViewController.h */,
+				E876AE111D7832560020907C /* XJPresentViewController.m */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
 		E884E5571D73D7090000AD89 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				E884E5581D73D7300000AD89 /* XJPlayerView.h */,
-				E884E5591D73D7300000AD89 /* XJPlayerView.m */,
-				E884E55A1D73D7300000AD89 /* XJPlayerManager.h */,
-				E884E55B1D73D7300000AD89 /* XJPlayerManager.m */,
-				E884E55C1D73D7300000AD89 /* XJPlayerManager+KeyValueObserver.h */,
-				E884E55D1D73D7300000AD89 /* XJPlayerManager+KeyValueObserver.m */,
+				E876ADFC1D7832440020907C /* PlayerView.h */,
+				E876AE011D7832440020907C /* XJPlayerView.h */,
+				E876AE021D7832440020907C /* XJPlayerView.m */,
+				E876ADFD1D7832440020907C /* XJPlayerManager.h */,
+				E876ADFE1D7832440020907C /* XJPlayerManager.m */,
+				E876AE161D7836560020907C /* XJResourceLoaderManager.h */,
+				E876AE171D7836560020907C /* XJResourceLoaderManager.m */,
+				E876ADFF1D7832440020907C /* XJPlayerManager+KeyValueObserver.h */,
+				E876AE001D7832440020907C /* XJPlayerManager+KeyValueObserver.m */,
+				E876AE031D7832440020907C /* XJPresentPlayerViewController.h */,
+				E876AE041D7832440020907C /* XJPresentPlayerViewController.m */,
 			);
 			path = PlayerView;
 			sourceTree = "<group>";
@@ -304,18 +344,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E884E5601D73D7300000AD89 /* XJPlayerManager+KeyValueObserver.m in Sources */,
 				E814DD811D6AAD33002BFBC5 /* AppDelegate.m in Sources */,
-				E884E55F1D73D7300000AD89 /* XJPlayerManager.m in Sources */,
+				E876AE151D7832560020907C /* XJPresentViewController.m in Sources */,
+				E876AE181D7836560020907C /* XJResourceLoaderManager.m in Sources */,
 				E8DADD131D6EDB29001C6CF0 /* ListCell.m in Sources */,
-				E884E55E1D73D7300000AD89 /* XJPlayerView.m in Sources */,
+				E876AE051D7832440020907C /* XJPlayerManager.m in Sources */,
 				E814DD821D6AAD33002BFBC5 /* main.m in Sources */,
+				E876AE121D7832560020907C /* XJAnimatedTransitioning.m in Sources */,
 				E8DADD0F1D6EDAC0001C6CF0 /* ListViewController.m in Sources */,
 				E84C3CBB1D6D7D3D00295B72 /* XJPlayerKeyValueObserver.m in Sources */,
 				E8DADD091D6E9175001C6CF0 /* XJPlayerManager+PlayerView.m in Sources */,
+				E876AE141D7832560020907C /* XJPresenterStyle.m in Sources */,
 				E814DD851D6ACA7B002BFBC5 /* TCPlayerViewController.m in Sources */,
+				E876AE061D7832440020907C /* XJPlayerManager+KeyValueObserver.m in Sources */,
+				E876AE131D7832560020907C /* XJPresentationController.m in Sources */,
 				E814DD801D6AAD33002BFBC5 /* ViewController.m in Sources */,
+				E876AE081D7832440020907C /* XJPresentPlayerViewController.m in Sources */,
 				E814DDB41D6C3D44002BFBC5 /* XJPlayerViewController.m in Sources */,
+				E876AE071D7832440020907C /* XJPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

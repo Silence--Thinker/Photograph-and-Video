@@ -10,6 +10,6 @@
 
 @interface XJPlayerManager (KeyValueObserver)
 
-- (void)asynchronouslyLoadURLAsset:(AVURLAsset *)newAsset;
+- (void)asynchronouslyLoadURLAsset:(AVURLAsset *)newAsset comletion:(void(^)())completion;
 
 @end

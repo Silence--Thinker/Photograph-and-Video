@@ -16,17 +16,23 @@
 @end
 @implementation XJPlayerView
 
--(void)dealloc {
+- (void)dealloc {
     NSLog(@"%s", __func__);
 }
 
 // MARK: - View Handling
 
--(instancetype)initWithPlayerManager:(XJPlayerManager *)manager {
+- (instancetype)init {
     if (self = [super init]) {
-        self.playerManager = manager;
+        self.playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     }
     return self;
+}
+
+- (instancetype)initWithPlayerManager:(XJPlayerManager *)manager {
+    XJPlayerView *playerView = [XJPlayerView new];
+    playerView.playerManager = manager;
+    return playerView;
 }
 
 // MARK: - Properties

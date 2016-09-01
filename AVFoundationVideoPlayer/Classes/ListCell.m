@@ -30,7 +30,7 @@
 }
 
 - (IBAction)didPlayerOrPuase:(UIButton *)tap {
-    self.model.manager.videoURL = self.model.videoURL.absoluteString;
+    self.model.manager.videoURL = self.model.videoURL;
     
     if (self.manager.rate != 1.0) {
         [self.manager play];

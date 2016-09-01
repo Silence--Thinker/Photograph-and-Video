@@ -12,6 +12,8 @@
 // category
 #import "XJPlayerManager+KeyValueObserver.h"
 
+#import "XJResourceLoaderManager.h"
+
 /*
  自定义的 KVO context 为了监听更加的专注于我们想要的（自我理解）
  */
@@ -21,7 +23,7 @@ NSString * const kKeyPathForPlayerItemLoadedTimeRanges = @"player.currentItem.lo
 NSString * const kKeyPathForPlayerItemBufferEmpty = @"player.currentItem.playbackBufferEmpty";
 NSString * const kKeyPathForPlayerItemLikelyToKeepUp = @"player.currentItem.playbackLikelyToKeepUp";
 NSString * const kStopAnotherVideoPlayer = @"StopAnthorVideoPlayer";
-
+NSString * const kCustomScheme = @"customScheme";
 
 PlayerContext TCPlayerViewKVOContext = 0;
 
@@ -30,16 +32,21 @@ PlayerContext TCPlayerViewKVOContext = 0;
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
     AVURLAsset *_asset;
-    NSString *_videoURL;
+    NSURL *_videoURL;
+    NSString *_videoURLStr;
     NSString *_identifier;
     id<NSObject> _timeObserverToken;// 时间观察token
     __weak XJPlayerView *_playerView;
+    XJResourceLoaderManager *_resourceManager;
 }
 @end
 @implementation XJPlayerManager
 
 - (void)dealloc {
     NSLog(@"%s", __func__);
+    self.playerView.player = nil;
+    self.playerItem = nil;
+    self.playerView.playerLayer = nil;
     [self removePropertiesObserver];
 }
 
@@ -122,6 +129,10 @@ PlayerContext TCPlayerViewKVOContext = 0;
     return _playerItem;
 }
 - (void)setPlayerItem:(AVPlayerItem *)playerItem {
+    if (_playerView.player == nil) {
+        _playerView.player = self.player;
+    }
+    
     if (_playerItem != playerItem) {
         _playerItem = playerItem;
         [self.player replaceCurrentItemWithPlayerItem:_playerItem];
@@ -135,18 +146,38 @@ PlayerContext TCPlayerViewKVOContext = 0;
      _asset = asset;
 }
 
-- (NSString *)videoURL {
+- (NSURL *)videoURL {
+    return _videoURL;
+}
+- (void)setVideoURL:(NSURL *)videoURL {
+    if ([_videoURL.absoluteString isEqualToString:videoURL.absoluteString]) {
+        if (!self.playerItem) {
+            [self asynchronouslyLoadURLAsset:_asset comletion:nil];
+        }
+        return;
+    }
+    _videoURL = videoURL;
+    //    self.asset = [AVURLAsset assetWithURL:_videoURL];
+    
+    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:videoURL resolvingAgainstBaseURL:NO];
+    components.scheme = kCustomScheme;
+    AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:components.URL options:nil];
+    [urlAsset.resourceLoader setDelegate:_resourceManager queue:dispatch_get_main_queue()];
+    self.asset = urlAsset;
+}
+
+- (NSString *)videoURLStr {
     return self.asset.URL.absoluteString;
 }
--(void)setVideoURL:(NSString *)videoURL {
-    if ([_videoURL isEqualToString:videoURL]) {
+-(void)setVideoURLStr:(NSString *)videoURLStr {
+    if ([_videoURLStr isEqualToString:videoURLStr]) {
         if (!self.playerItem) {
-            [self asynchronouslyLoadURLAsset:_asset];
+            [self asynchronouslyLoadURLAsset:_asset comletion:nil];
         }
         return ;
     }
-    _videoURL = [videoURL copy];
-    NSURL *url = [NSURL URLWithString:videoURL];
+    _videoURLStr = [videoURLStr copy];
+    NSURL *url = [NSURL URLWithString:videoURLStr];
     self.asset = [AVURLAsset assetWithURL:url];
 }
 
@@ -208,12 +239,21 @@ PlayerContext TCPlayerViewKVOContext = 0;
 }
 
 - (void)play {
+    if (self.justOnePlay) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kStopAnotherVideoPlayer object:_identifier];
+    }
+    
     // 当前layer的player 一定要在
     if (_playerView.player == nil) {
         _playerView.player = self.player;
     }
-    if (self.justOnePlay) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kStopAnotherVideoPlayer object:_identifier];
+    // 播放item还没有
+    if (self.playerItem == nil) {
+        __weak typeof(self) weakSelf = self;
+        [self asynchronouslyLoadURLAsset:_asset comletion:^{
+            [weakSelf play];
+        }];
+        return ;
     }
     if (self.player.rate != 1.0) {
         // not playing 2 play

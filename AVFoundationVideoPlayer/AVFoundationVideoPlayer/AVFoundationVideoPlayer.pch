@@ -19,3 +19,18 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "Masonry.h"
+
+
+
+// 强引用与弱引用的转换
+#define TCWeak(var, weakVar) __weak __typeof(&*var) weakVar = var
+#define TCStrong_DoNotCheckNil(weakVar, _var) __typeof(&*weakVar) _var = weakVar
+#define TCStrong(weakVar, _var) TCStrong_DoNotCheckNil(weakVar, _var); if (!_var) return;
+
+#define TCWeak_(var) TCWeak(var, weak_##var);
+#define TCStrong_(var) TCStrong(weak_##var, _##var);
+
+/** defines a weak `self` named `__weakSelf` */
+#define TCWeakSelf      TCWeak(self, __weakSelf);
+/** defines a strong `self` named `_self` from `__weakSelf` */
+#define TCStrongSelf    TCStrong(__weakSelf, _self);
